@@ -90,20 +90,40 @@ class EnvManager:
 class ChatGPTClient:
     def __init__(self, api_key):
         self.api_key = api_key
-        self.url = "https://cheapest-gpt-4-turbo-gpt-4-vision-chatgpt-openai-ai-api.p.rapidapi.com/v1/chat/completions"
+        # self.url = "https://cheapest-gpt-4-turbo-gpt-4-vision-chatgpt-openai-ai-api.p.rapidapi.com/v1/chat/completions"
+        # self.url = "https://chatgpt-42.p.rapidapi.com/conversationgpt4-2"
+        self.url = "https://gemini-pro-ai.p.rapidapi.com/"
         self.headers = {
+            # "x-rapidapi-key": "",
+            # "x-rapidapi-host": "chatgpt-42.p.rapidapi.com",
+            # "Content-Type": "application/json",
             "x-rapidapi-key": self.api_key,
-            "x-rapidapi-host": "cheapest-gpt-4-turbo-gpt-4-vision-chatgpt-openai-ai-api.p.rapidapi.com",
+            "x-rapidapi-host": "gemini-pro-ai.p.rapidapi.com",
             "Content-Type": "application/json",
         }
 
-    def get_response(self, message, model="gpt-4o", max_tokens=100, temperature=0.9):
-        payload = {
-            "messages": [{"role": "user", "content": message}],
-            "model": model,
-            "max_tokens": max_tokens,
-            "temperature": temperature,
-        }
+    def get_response(
+        self,
+        message,
+        model="gpt-4o",
+        max_tokens=100,
+        temperature=0.9,
+        top_k=5,
+        top_p=0.9,
+    ):
+        # payload = {
+        #     "messages": [{"role": "user", "content": message}],
+        #     # "model": model,
+        #     "max_tokens": max_tokens,
+        #     "temperature": temperature,
+        #     "system_prompt": "",
+        #     "top_k": top_k,
+        #     "top_p": top_p,
+        #     "web_access": False,
+        # }
+
+        # USING GEMINI PRO NOW
+        payload = {"contents": [{"role": "user", "parts": [{"text": message}]}]}
         response = requests.post(self.url, json=payload, headers=self.headers)
         return response.json()
 
@@ -132,7 +152,8 @@ class ChatServer:
                     break
                 print(f"\033[35m{client_id}: {message}\033[0m")
                 response = self.chat_client.get_response(message)
-                reply = response["choices"][0]["message"]["content"]
+                # reply = response["choices"][0]["message"]["content"]
+                reply = response["candidates"][0]["content"]["parts"][0]["text"]
                 print(f"\033[36mServer: {reply}\033[0m")
                 client_socket.send(reply.encode())
         except Exception as e:

@@ -20,7 +20,7 @@ def main():
     # message = input("Enter your message: ")
 
     for message in lines:
-        message = "hi"
+        # message = "hi"
         formatted_message = f"{client_id}: {message}"
         start = time.time()
         client_socket.send(formatted_message.encode())
@@ -36,7 +36,7 @@ def main():
                 "Source": "GPT-4o",
             }
         )
-        break
+        # break
         # message = input("Enter your message: ")
     with open("output.json", "w") as file:
         json.dump(output, file, indent=2)

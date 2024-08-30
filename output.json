@@ -1,9 +1,9 @@
 [
   {
     "Prompt": "hi",
-    "Message": "",
-    "TimeSent": 1725032924.7817345,
-    "TimeRecvd": 1725032926.1348462,
+    "Message": "Hello! How can I help you today?",
+    "TimeSent": 1725036176.9947524,
+    "TimeRecvd": 1725036181.0926802,
     "Source": "GPT-4o"
   }
 ]
