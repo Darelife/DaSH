@@ -33,7 +33,8 @@ def main():
                 "Message": response,
                 "TimeSent": start,
                 "TimeRecvd": end,
-                "Source": "GPT-4o",
+                # "Source": "GPT-4o",
+                "Source": "AdultGPT",
             }
         )
         # break
