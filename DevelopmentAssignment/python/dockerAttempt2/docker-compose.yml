@@ -1,0 +1,23 @@
+# version: '3.8'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    ports:
+      - "6969:6969"
+    networks:
+      - dash_network
+
+  client:
+    build:
+      context: .
+      dockerfile: client/Dockerfile
+    depends_on:
+      - server
+    networks:
+      - dash_network
+
+networks:
+  dash_network:
+    driver: bridge
