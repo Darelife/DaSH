@@ -1,0 +1,6 @@
+https://www.usenix.org/system/files/conference/fast16/fast16-papers-harter.pdf
+- Finish the docker thing 😭
+    Export container images to tars, and inspect their contents.
+
+    This is mostly to expose you to what we’re working with right now. It’s okay if nothing makes sense; documentation is rather poor.
+    Document your understanding of what the various files in the exported tar are, and how you arrived at your conclusions. You’ll encounter a bunch of JSONs and binary blobs.

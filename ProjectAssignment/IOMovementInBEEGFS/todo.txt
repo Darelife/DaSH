@@ -1,0 +1,2 @@
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10321840
+https://dl.acm.org/doi/pdf/10.1145/3611007 (up to Section 3: Application Data Models And Access Patterns).

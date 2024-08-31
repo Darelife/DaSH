@@ -1,0 +1,12 @@
+Implement Level 2 of the development question using MQTT with a mosquitto broker for messaging 
+between the client and the server. (Yes, MQTT is a pub/sub model based protocol not intended for 
+client server models, but we expect you to replicate a client server architecture with it for this 
+assignment.)
+
+https://ieeexplore.ieee.org/document/9143110
+    Give us a one page review of it:
+
+     A one or two sentence summary of the paper.
+    A deeper, more extensive outline of the main points of the paper, including for example assumptions made, arguments presented, data analyzed, and conclusions drawn.
+    Any limitations or extensions you see for the ideas in the paper.
+    Your opinion of the paper; primarily, the quality of the ideas and its potential    
