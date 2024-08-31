@@ -9,7 +9,7 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . .
 
-# Install any needed packages specified in requirements
+# Install the required Python packages
 RUN pip install --no-cache-dir requests python-dotenv
 
 # Run client.py when the container launches

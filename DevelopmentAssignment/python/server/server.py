@@ -107,7 +107,7 @@ class ChatGPTClient:
     def get_response(
         self,
         message,
-        model="gpt-4o",
+        model="adultGPT",
         max_tokens=100,
         temperature=0.9,
         top_k=2,
