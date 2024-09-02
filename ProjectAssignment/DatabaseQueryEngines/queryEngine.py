@@ -36,8 +36,8 @@ class Database:
     #     new_db.numRows = len(new_db.database)
     #     return new_db
 
-    def insert(self, row: Dict[str, Any]) -> None:
-        """Algorithm: Append the new row to the database matrix."""
+    def insert(self, row: Dict[str, Any]):
+        # insert(["Alice", 25])
         if len(row) != self.numColumns:
             raise ValueError("Row does not match the number of columns")
         new_row = [None] * self.numColumns
@@ -47,16 +47,15 @@ class Database:
         self.database.append(new_row)
         self.numRows += 1
 
-    def alter(self, column_name: str, column_type: str) -> None:
-        """Algorithm: Add a new column to the database matrix."""
+    def alter(self, column_name: str, column_type: str):
+        # alter("height", "int")
         self.columnsSchema[column_name] = column_type
         self.columnToDatabaseIndexMapping[column_name] = self.numColumns
         self.numColumns += 1
         for row in self.database:
             row.append(None)
 
-    def delete(self, column: str, conditionType: str, conditionValue: Any) -> None:
-        """Algorithm: Remove rows that match the condition."""
+    def delete(self, column: str, conditionType: str, conditionValue: Any):
         col_index = self.columnToDatabaseIndexMapping[column]
         self.database = [
             row
@@ -67,9 +66,7 @@ class Database:
         ]
         self.numRows = len(self.database)
 
-    def update(self, primaryKey: str, parameters: Dict[str, Any]) -> None:
-        # get the primary key from the user, and update all the parameters mentioned...if there isn't a parameter in the row, and it's there in the database schema, then add it with None value
-
+    def update(self, primaryKey: str, parameters: Dict[str, Any]):
         db = self.select(self.primary_key, "=", primaryKey)
         if len(db.database) == 0:
             raise ValueError("Primary key not found in the database")
@@ -81,10 +78,7 @@ class Database:
                 else:
                     raise ValueError("Column not found in the database schema")
 
-    def select(
-        self, column: str = None, conditionType: str = "=", value: Any = None
-    ) -> "Database":
-        """Algorithm: Filter rows based on the condition."""
+    def select(self, column: str = None, conditionType: str = "=", value: Any = None):
         if value is None:
             return self
 
@@ -108,7 +102,6 @@ class Database:
     def update(
         self, column: str, value: Any, conditionType: str, conditionValue: Any
     ) -> None:
-        """Algorithm: Update rows that match the condition."""
         col_index = self.columnToDatabaseIndexMapping[column]
         for row in self.database:
             if conditionType == "=" and row[col_index] == conditionValue:
@@ -117,6 +110,17 @@ class Database:
                 row[col_index] = value
             elif conditionType == "<" and row[col_index] < conditionValue:
                 row[col_index] = value
+    # get a, b
+    # a -> a1,a2,a3
+    # b -> b1,b2,a1
+    # t = {a1,a2,a3,b1,b2}
+    # for row in a ->
+    # n = {}
+    #   for row in b ->
+    # a.a1 = b.a1
+    # n[a1] = ...
+    #  ..
+    
 
 
 if __name__ == "__main__":

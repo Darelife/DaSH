@@ -10,3 +10,8 @@ https://ieeexplore.ieee.org/document/9143110
     A deeper, more extensive outline of the main points of the paper, including for example assumptions made, arguments presented, data analyzed, and conclusions drawn.
     Any limitations or extensions you see for the ideas in the paper.
     Your opinion of the paper; primarily, the quality of the ideas and its potential    
+
+1. FaaS
+2. Serverless
+3. Types of models (like client-server)
+4. Why should we opt for serverless?

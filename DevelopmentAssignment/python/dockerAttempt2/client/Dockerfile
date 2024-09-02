@@ -1,11 +1,14 @@
-# Same thing than the 'server' Dockerfile.
-FROM python:latest
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
 
-# Same thing than the 'server' Dockerfile.
-# We import 'client.py' in '/client/' folder.
-ADD client.py /client/
+# Set the working directory in the container
+WORKDIR /app
 
-# I would like to introduce something new, the 'WORKDIR' command.
-# This command changes the base directory of your image.
-# Here we define '/client/' as base directory.
-WORKDIR /client/
+# Copy the current directory contents into the container at /app
+COPY . .
+
+# Install the required Python packages
+RUN pip install --no-cache-dir requests python-dotenv
+
+# Run client.py when the container launches
+CMD ["python", "client.py"]

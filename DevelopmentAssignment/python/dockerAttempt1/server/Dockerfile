@@ -13,7 +13,7 @@ COPY . .
 RUN pip install --no-cache-dir requests python-dotenv
 
 # Expose port 6942 for the server
-EXPOSE 6942
+EXPOSE 6969
 
 # Run server.py when the container launches
-CMD ["python", "server.py"]
+CMD ["python", "server/server.py"]

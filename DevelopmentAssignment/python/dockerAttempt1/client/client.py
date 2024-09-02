@@ -8,7 +8,7 @@ def main():
     port = 6969
     client_socket = socket.socket()
 
-    with open("input.txt", "r") as file:
+    with open("client/input.txt", "r") as file:
         lines = file.readlines()
 
     server = socket.gethostname()

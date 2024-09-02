@@ -13,4 +13,4 @@ COPY . .
 RUN pip install --no-cache-dir requests python-dotenv
 
 # Run client.py when the container launches
-CMD ["python", "client.py"]
+CMD ["python", "client/client.py"]
